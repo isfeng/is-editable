@@ -13,7 +13,7 @@ authors:
   - isfeng
 
 requires:
-  - Core
+  - core/1.4.5: '*'
 
 
 provides: [SimpleEditable]
