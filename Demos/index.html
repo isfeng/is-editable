@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Editable Demo</title>
+    <script src="assets/javascripts/mootools-core-1.4.5.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/javascripts/mootools-more-1.4.0.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../Source/simple-editable.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<p id="test01">double click</p>
+	<p id="test02" style="width:200px; border: 1px solid black">long long long long long long long long long long long long long long long long long long long long long text</p>
+
+<script type="text/javascript">
+
+    window.addEvent('domready', function()
+    {
+    	$('test01').makeEditable({
+    		onComplete: function(val){
+    			alert(val);
+    		}
+    	});
+    	
+    	$('test02').makeEditable({
+    		type:'textarea', 
+    		onComplete: function(val){
+    			alert(val);
+    		}
+    	});
+    });
+
+</script>
+	
+</body>
+</html>
