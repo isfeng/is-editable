@@ -13,7 +13,8 @@ authors:
   - isfeng
 
 requires:
-  - core/1.4.5: '*'
+  - core/
+  - more/Fx.Reveal
 
 
 provides: [SimpleEditable]
@@ -27,8 +28,11 @@ var SimpleEditable = new Class({
   
   Implements: [Events, Options],
 
+  element: null,
+  editable: null,
+
   options: {
-    
+    type:'text' //text || textarea
   },
 
   initialize: function(element, options){
@@ -37,26 +41,43 @@ var SimpleEditable = new Class({
     this.setOptions(options);
 
     element.addEvent('dblclick',function(){
-      var textarea = new Element('textarea', {
-        value: element.get('text'),
-        styles: {'height': '100%', 'z-index': '99999'},
-        events: {
-          blur: function(){
-            textarea.destroy();
-            element.set('text', textarea.get('value'));
-            element.reveal();
-            this.fireEvent('complete');
-          }.bind(this)
-        }        
-      });
+      if(this.options.type=='textarea')
+      {
+        this.editable = new Element('textarea', {
+          value: element.get('text'),
+          styles: {height: element.getStyle('height'), width: element.getStyle('width')},
+          events: {
+            blur: this._onBlur.bind(this)
+          }
+        });  
+      }
+      else
+      {
+        this.editable = new Element('input', {
+          value: element.get('text'),
+          type: 'text',
+          size: element.get('text').length,
+          events: {
+            blur: this._onBlur.bind(this)
+          }        
+        });   
+      }     
       
-      textarea.inject(element, 'after');
+      this.editable.inject(element, 'after');
       element.toggle();
-      textarea.focus();
+      this.editable.focus();
       this.fireEvent('beforeStart');
 
     }.bind(this));
+  },
+
+  _onBlur: function(){
+    this.editable.destroy();
+    this.element.set('text', this.editable.get('value'));
+    this.element.reveal();
+    this.fireEvent('complete', this.editable.get('value'));
   }
+
 });
 
 Element.implement({
