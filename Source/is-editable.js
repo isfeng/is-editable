@@ -1,9 +1,9 @@
 /*
 ---
 
-script: SimpleEditable.js
+script: is-editable.js
 
-name: SimpleEditable
+name: IsEditable
 
 description: A simple way to create in place editing fields with Mootools.
 
@@ -17,14 +17,14 @@ requires:
   - more/Fx.Reveal
 
 
-provides: [SimpleEditable]
+provides: [IsEditable]
 ...
 
 
 
 */
 
-var SimpleEditable = new Class({
+var IsEditable = new Class({
   
   Implements: [Events, Options],
 
@@ -83,7 +83,7 @@ var SimpleEditable = new Class({
 Element.implement({
 
   makeEditable: function(options){
-    var editable = new SimpleEditable(this, options);
+    var editable = new IsEditable(this, options);
     return editable;
   }
 

@@ -1,7 +1,7 @@
-simple-editable
+is-editable
 ===============
 
-simple-editable is a small [MooTools](http://mootools.net/) plugin to to create in place editing fields.
+is-editable is a small [MooTools](http://mootools.net/) plugin to to create in place editing fields.
 
 How to Use
 ----------
@@ -16,7 +16,7 @@ Snippet code Javascript:
 			
 		},
 		onComplete: function(){
-			// el.retrieve('dragger').attach();
+			
 		}
 	});
 
@@ -26,7 +26,7 @@ Snippet code Javascript:
 			
 		},
 		onComplete: function(){
-			// el.retrieve('dragger').attach();
+			
 		}
 	});
 
