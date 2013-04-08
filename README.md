@@ -12,7 +12,7 @@ Snippet code Javascript:
 	
 	$("test01").makeEditable({
 		type: 'text',
-		onBeforeStart: function(){
+		onBeforeEdit: function(){
 			
 		},
 		onComplete: function(){
@@ -22,7 +22,7 @@ Snippet code Javascript:
 
 	$("test02").makeEditable({
 		type: 'textarea',
-		onBeforeStart: function(){
+		onBeforeEdit: function(){
 			
 		},
 		onComplete: function(){

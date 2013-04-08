@@ -3,8 +3,6 @@
 
 script: is-editable.js
 
-name: IsEditable
-
 description: A simple way to create in place editing fields with Mootools.
 
 license: MIT-style license
@@ -17,14 +15,14 @@ requires:
   - more/Fx.Reveal
 
 
-provides: [IsEditable]
+provides: [isEditable]
 ...
 
 
 
 */
 
-var IsEditable = new Class({
+var isEditable = new Class({
   
   Implements: [Events, Options],
 
@@ -66,7 +64,7 @@ var IsEditable = new Class({
       this.editable.inject(element, 'after');
       element.toggle();
       this.editable.focus();
-      this.fireEvent('beforeStart');
+      this.fireEvent('beforeEdit');
 
     }.bind(this));
   },
@@ -83,7 +81,7 @@ var IsEditable = new Class({
 Element.implement({
 
   makeEditable: function(options){
-    var editable = new IsEditable(this, options);
+    var editable = new isEditable(this, options);
     return editable;
   }
 
